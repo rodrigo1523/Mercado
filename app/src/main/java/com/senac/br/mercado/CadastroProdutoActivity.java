@@ -28,7 +28,7 @@ public class CadastroProdutoActivity extends AppCompatActivity {
             Integer.parseInt(quantidade.getText().toString()),
             preco.getText().toString());
 
-       produtoDAO dao = new produtoDAO();
+       produtoDAO dao = new produtoDAO(this);
        dao.salvar(produto);
 
         Intent Cad = new Intent(this, MainActivity.class);
