@@ -12,23 +12,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Nome" />
-
-    <EditText
-        android:id="@+id/quantidadeEditText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Quantidade" />
+        android:hint="Nome"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/precoEditText"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:ems="10"
+        android:hint="Preço"
         android:inputType="number" />
+
+    <EditText
+        android:id="@+id/quantidadeEditText"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Quantidade"
+        android:inputType="textPersonName" />
 
     <Button
         android:id="@+id/button"
@@ -36,6 +37,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:onClick="telaInicial"
-        android:text="Cadastrar" />
+        android:text="Voltar" />
         android:="telaInicial"
 </LinearLayout>
