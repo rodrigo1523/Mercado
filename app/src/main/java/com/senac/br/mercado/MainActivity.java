@@ -10,7 +10,11 @@ import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 
+import com.senac.br.mercado.Modolo.produto;
+import com.senac.br.mercado.dao.produtoDAO;
+
 import java.util.ArrayList;
+import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -19,22 +23,24 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        ArrayList<String> produtos = new ArrayList<>();
+        produtoDAO dao = new produtoDAO(this);
+        List<produto> produtos = dao.listar();
 
-        produtos.add("Café");
-        produtos.add("Coca-Cola");
-        produtos.add("Bolachas");
-        produtos.add("Fanta");
-        produtos.add("Fandangos");
+
 
         ListView listiView = findViewById(R.id.listViewProdutos);
 
-        ListAdapter listAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, produtos);
+        ListAdapter listAdapter = new ArrayAdapter<produto>(this, android.R.layout.simple_list_item_1, produtos);
 
         listiView.setAdapter(listAdapter);
 
-
-
+        listiView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent Cad = new Intent(MainActivity.this, CadastroProdutoActivity.class);
+                startActivity(Cad);
+            }
+        });
 
 
     }

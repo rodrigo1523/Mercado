@@ -36,6 +36,6 @@
         android:layout_height="wrap_content"
         android:clickable="true"
         android:onClick="telaInicial"
-        android:text="Voltar" />
+        android:text="Cadastrar" />
         android:="telaInicial"
 </LinearLayout>
