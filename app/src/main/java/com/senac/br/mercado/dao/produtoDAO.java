@@ -55,5 +55,10 @@ public class produtoDAO {
 
     }
 
+    public void excluir(produto prod) {
+
+        sqLiteDatabase = sqLiteHelper.getWritableDatabase();
+        sqLiteDatabase.delete("PRODUTO", "ID = ?", new String[]{String.valueOf(prod.getId())});
+    }
 }
 

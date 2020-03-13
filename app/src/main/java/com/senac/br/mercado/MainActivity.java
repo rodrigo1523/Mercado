@@ -9,6 +9,7 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListAdapter;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import com.senac.br.mercado.Modolo.produto;
 import com.senac.br.mercado.dao.produtoDAO;
@@ -41,7 +42,20 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(Cad);
             }
         });
+        listiView.setOnItemLongClickListener(new AdapterView.OnItemLongClickListener() {
+            @Override
+            public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+                produto prod = (produto) parent.getItemAtPosition(position);
 
+                produtoDAO dao = new produtoDAO(MainActivity.this);
+                dao.excluir(prod);
+
+                Toast.makeText(MainActivity.this, "Item excluido com sucesso", Toast.LENGTH_SHORT).show();
+                Intent Cad = new Intent(MainActivity.this, MainActivity.class);
+                startActivity(Cad);
+                return true;
+            }
+        });
 
     }
 
